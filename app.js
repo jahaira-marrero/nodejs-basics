@@ -1,5 +1,11 @@
 const http = require('http');
 const port = 5050;
+
+const dbConnection = true;
+    if(!dbConnection){
+        process.exit(1)
+    };
+ 
 const server = http.createServer((req, res) => {
     switch(req.url) {
         case '/':
