@@ -1,4 +1,5 @@
 const { pbkdf2 } = require('crypto');
+const { createServer } = require('http');
 
 const start = Date.now();
 
@@ -8,8 +9,15 @@ const hash = () => {
     });
 };
 
+const lis = () => {
+    createServer().listen(3000, () => {
+        console.log("listening", Date.now() - start);
+    });
+};
+
 hash();
 hash();
 hash();
 hash();
-console.log('Hello! I will be executed first.')
+lis();
+// console.log('Hello! I will be executed first.')
